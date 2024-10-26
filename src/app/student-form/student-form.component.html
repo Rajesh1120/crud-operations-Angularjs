@@ -1,0 +1,46 @@
+<h2>Student Registration Form</h2>
+    <form #studentForm="ngForm" (ngSubmit)="onSubmit()">
+        <label for="rollno">Roll Number:</label>
+        <input type="text" id="rollno" name="rollno" pattern="[0-9]" #rollno="ngModel" [(ngModel)]="studentData.rollno"required>
+        <br><br>
+        <div *ngIf="rollno.touched && rollno.invalid">
+            <p>Must be number</p>
+        </div>
+
+        <label for="stdname">Student Name:</label>
+        <input type="text" id="stdname" name="stdname" [(ngModel)]="studentData.studentname" required>
+        <br><br>
+
+        <label for="branch">Branch:</label>
+        <select id="branch" [(ngModel)]="studentData.branch" name="branch" required>
+            <option value="CSE">Computer Science Engineering</option>
+            <option value="ECE">Electronics and Communication Engineering</option>
+            <option value="EEE">Electrical and Electronics Engineering</option>
+            <option value="ME">Mechanical Engineering</option>
+            <option value="CE">Civil Engineering</option>
+        </select>
+        <br><br>
+
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender" value="male" [(ngModel)]="studentData.gender" >
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female" [(ngModel)]="studentData.gender" >
+        <label for="female">Female</label>
+        <br><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="number" id="phone" name="phone" pattern="[0-9]{10}" #phnnumber="ngModel" [(ngModel)]="studentData.phonenumber" required>
+        <small>Format: 1234567890</small>
+        <div *ngIf="phnnumber.invalid && phnnumber.touched">
+            <p>Must be 10 digits</p>
+        </div>
+        <br><br>
+
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" [(ngModel)]="studentData.email" required>
+        <br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    <app-student-data [studentsData]= "StudentsData"> </app-student-data>
