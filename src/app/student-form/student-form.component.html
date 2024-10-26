@@ -1,11 +1,9 @@
 <h2>Student Registration Form</h2>
     <form #studentForm="ngForm" (ngSubmit)="onSubmit()">
         <label for="rollno">Roll Number:</label>
-        <input type="text" id="rollno" name="rollno" pattern="[0-9]" #rollno="ngModel" [(ngModel)]="studentData.rollno"required>
+        <input type="text" id="rollno" name="rollno"  #rollno="ngModel" [(ngModel)]="studentData.rollno"required>
         <br><br>
-        <div *ngIf="rollno.touched && rollno.invalid">
-            <p>Must be number</p>
-        </div>
+        
 
         <label for="stdname">Student Name:</label>
         <input type="text" id="stdname" name="stdname" [(ngModel)]="studentData.studentname" required>
@@ -41,6 +39,6 @@
         <input type="email" id="email" name="email" [(ngModel)]="studentData.email" required>
         <br><br>
 
-        <input type="submit" value="Submit">
+        <button type="submit" [disabled]="studentForm.invalid">Submit</button>
     </form>
     <app-student-data [studentsData]= "StudentsData"> </app-student-data>
