@@ -1,13 +1,22 @@
 <div>
     <p> Hi every body</p>
-    <ul>
-        <li *ngFor="let student of studentsData">
-            {{student.rollno}}
-            {{student.email}}
-            {{student.phonenumber}}
-            {{student.branch}}
-            {{student.gender}}
-            
-        </li>
-    </ul>
+    <div *ngIf="studentsData.length; else noData">
+        <ul>
+            <li *ngFor="let student of studentsData">
+                {{student.rollno}}
+                {{student.email}}
+                {{student.phonenumber}}
+                {{student.branch}}
+                {{student.gender}}
+                <button>Edit</button>
+                <button>Delete</button>
+            </li>
+        </ul>
+    </div>
+    <ng-template #noData>
+        <p>No student data</p>
+    </ng-template>
+        
+    
+    
 </div>
