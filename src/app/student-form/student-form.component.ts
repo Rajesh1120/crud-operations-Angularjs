@@ -27,7 +27,6 @@ export class StudentFormComponent {
     
     this.StudentsData.push({...this.studentData});
     console.log(this.StudentsData);
-    
   }
   
 }

@@ -1,5 +1,7 @@
 
 <div>
     <p>home-page works!</p>
-    <button [routerLink]="['/add-student']" routerLinkActive="router-link-active" >Add student</button>
+    <button (click)="navigatetoAddstudentform()">Add student</button>
+    <app-student-form *ngIf="isclicked"></app-student-form>
+    
 </div>

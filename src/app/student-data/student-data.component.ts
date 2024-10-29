@@ -16,5 +16,9 @@ export class StudentDataComponent {
   constructor(){
     console.log(this.studentsData)
   }
+  onDeleteStudent(rollno:number|null){
+    this.studentsData=this.studentsData.filter(student=> student.rollno !== rollno);
+    console.log(this.studentsData);
+  } 
 
 }

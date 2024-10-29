@@ -9,7 +9,7 @@
                 {{student.branch}}
                 {{student.gender}}
                 <button>Edit</button>
-                <button>Delete</button>
+                <button (click)="onDeleteStudent(student.rollno)">Delete</button>
             </li>
         </ul>
     </div>
